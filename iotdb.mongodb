@@ -1,0 +1,20 @@
+
+use ("iotdb")
+
+db.iot.drop()
+db.iot.insertMany([
+ { _id: 1, sensor: "A001", date: "2024-06-01", readings: [1,2,3,4] },
+ { _id: 2, sensor: "A001", date: "2024-06-02", readings: [1,2,3,4] },
+ { _id: 3, sensor: "A002", date: "2024-06-01", readings: [1,2,3,4] },
+ { _id: 4, sensor: "A002", date: "2024-06-02", readings: [1,2,3,4] },
+])
+// Crear datos de lecturas para los nuevos sensores “A003” y “A004”, en las 
+// fechas 2024-06-16 y 2024-06-17. Los valores deben ser diferentes a 
+// 1,2,3,4
+db.iot.insertMany([
+    { _id: 5, sensor: "A003", date: "2024-06-16", readings: [5,6,7,8] },
+    { _id: 6, sensor: "A003", date: "2024-06-17", readings: [9,10,11,12] },
+    { _id: 7, sensor: "A004", date: "2024-06-16", readings: [13,14,15,16] },
+    { _id: 8, sensor: "A004", date: "2024-06-17", readings: [17,18,19,20] }
+  ])
+db.iot.find()

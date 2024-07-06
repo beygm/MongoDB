@@ -1,0 +1,7 @@
+// Aumente el valor del presupuesto (budget) de todos los objetos en 100.
+
+db.monthlyBudget.updateMany(
+    {},
+    { $inc: { budget: 100 } }
+  )
+  db.monthlyBudget.find()

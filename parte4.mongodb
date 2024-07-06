@@ -1,0 +1,7 @@
+// Mostrar los documentos cuyo category sólo contenga los valores “food” o 
+// “clothes”. Mostrar sólo las claves “category” y “budget”.
+
+db.monthlyBudget.find(
+    { category: { $in: ["food", "clothes"] } },
+    { category: 1, budget: 1 }
+  )

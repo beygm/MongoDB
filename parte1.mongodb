@@ -1,0 +1,14 @@
+use("iotdb")
+
+// Utilizando upsert, insertar nuevos valores de lectura en los documentos 
+// cuyo valor de la clave _id sea par.
+const evenIds = db.iot.find({ _id: { $mod: [2, 0] } }).map(doc => doc._id);
+evenIds.forEach(id => {
+  db.iot.updateOne(
+    { _id: id },
+    { $set: { "new_readings": [210, 22, 23, 24] } },
+    { upsert: true }
+  )
+})
+
+db.iot.find()

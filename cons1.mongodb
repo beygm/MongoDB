@@ -1,0 +1,5 @@
+use("moviesDB")
+db.movies.find(
+  { generos: "drama" },
+  { _id: 0, TITULO: 1, director: 1, generos: 1 }
+)

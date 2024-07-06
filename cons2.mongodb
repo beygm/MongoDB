@@ -1,0 +1,6 @@
+use("moviesDB")
+db.movies.find(
+    { "detalles.duracion": { $gt: 150 } },
+    { _id: 0, TITULO: 1, director: 1, detalles: 1 }
+  )  
+  

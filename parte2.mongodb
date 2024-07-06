@@ -1,0 +1,15 @@
+
+use("iotdb")
+
+// Elimine el valor de la primera lectura en todos los documentos cuyo valor 
+// de la clave _id sea impar.
+const oddIds = db.iot.find({ _id: { $mod: [2, 1] } }).map(doc => doc._id);
+oddIds.forEach(id => {
+  db.iot.updateOne(
+    { _id: id },
+    { $pop: { readings: -1 } }
+  )
+})
+
+
+db.iot.find()

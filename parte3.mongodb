@@ -1,0 +1,12 @@
+// Utilizando upsert, actualice los documentos con id 1, 3 y 5, y cambie el valor 
+// del campo “category” por un array con los valores “drinks”, “clothes”, 
+// “shoes”
+
+db.monthlyBudget.updateMany(
+    { _id: { $in: [1, 3, 5] } },
+    { $set: { category: ["drinks", "clothes", "shoes"] } },
+    { upsert: true }
+  )
+
+
+  db.monthlyBudget.find() 
